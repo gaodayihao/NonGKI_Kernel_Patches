@@ -1,3 +1,33 @@
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index eb69f3e..50d43ae 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -150,9 +150,9 @@ KBUILD_DTBS	:= dtbs
+ 
+ KBUILD_DTBO_IMG := dtbo.img
+ 
+-ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+-export DTC_FLAGS := -@
+-endif
++# ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
++# export DTC_FLAGS := -@
++# endif
+ 
+ all:	$(KBUILD_DTBS) $(KBUILD_TARGET)
+ 
+@@ -182,9 +182,9 @@ Image-dtb: vmlinux scripts dtbs
+ Image.gz-dtb: vmlinux scripts dtbs Image.gz
+ 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+ 
+-ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+-$(KBUILD_DTBO_IMG): dtbs
+-	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
++# ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
++# $(KBUILD_DTBO_IMG): dtbs
++# 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+ 
+ all: $(KBUILD_DTBO_IMG)
+ endif
 diff --git a/arch/arm64/boot/Makefile b/arch/arm64/boot/Makefile
 index 4e1fc8b..710ee18 100644
 --- a/arch/arm64/boot/Makefile
@@ -11,16 +41,3 @@ index 4e1fc8b..710ee18 100644
  
  DTB_NAMES := $(subst $\",,$(CONFIG_BUILD_ARM64_APPENDED_DTB_IMAGE_NAMES))
  ifneq ($(DTB_NAMES),)
-diff --git a/arch/arm64/configs/thyme_defconfig b/arch/arm64/configs/thyme_defconfig
-index 3d13f8e..9ae36cd 100644
---- a/arch/arm64/configs/thyme_defconfig
-+++ b/arch/arm64/configs/thyme_defconfig
-@@ -70,7 +70,7 @@ CONFIG_CMDLINE_EXTEND=y
- # CONFIG_EFI is not set
- CONFIG_BUILD_ARM64_UNCOMPRESSED_KERNEL=y
- CONFIG_KRYO_PMU_WORKAROUND=y
--CONFIG_BUILD_ARM64_DT_OVERLAY=y
-+# CONFIG_BUILD_ARM64_DT_OVERLAY is not set
- CONFIG_COMPAT=y
- CONFIG_SUSPEND_SKIP_SYNC=y
- CONFIG_PM_WAKELOCKS=y
