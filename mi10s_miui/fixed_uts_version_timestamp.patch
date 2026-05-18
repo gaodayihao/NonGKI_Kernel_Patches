@@ -1,0 +1,18 @@
+diff --git a/scripts/mkcompile_h b/scripts/mkcompile_h
+index 35d7e83..222b96f 100644
+--- a/scripts/mkcompile_h
++++ b/scripts/mkcompile_h
+@@ -34,11 +34,8 @@ else
+ 	VERSION=$KBUILD_BUILD_VERSION
+ fi
+ 
+-if [ -z "$KBUILD_BUILD_TIMESTAMP" ]; then
+-	TIMESTAMP=`date`
+-else
+-	TIMESTAMP=$KBUILD_BUILD_TIMESTAMP
+-fi
++TIMESTAMP="Thu Dec 19 10:00:00 CST 2024"
++
+ if test -z "$KBUILD_BUILD_USER"; then
+ 	LINUX_COMPILE_BY=$(whoami | sed 's/\\/\\\\/')
+ else
