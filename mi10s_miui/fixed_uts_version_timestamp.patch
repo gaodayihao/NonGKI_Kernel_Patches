@@ -11,7 +11,7 @@ index 35d7e83..222b96f 100644
 -else
 -	TIMESTAMP=$KBUILD_BUILD_TIMESTAMP
 -fi
-+TIMESTAMP="Thu Dec 19 10:00:00 CST 2024"
++TIMESTAMP="Wed Jun 5 14:47:35 UTC 2024"
 +
  if test -z "$KBUILD_BUILD_USER"; then
  	LINUX_COMPILE_BY=$(whoami | sed 's/\\/\\\\/')
